@@ -6,7 +6,6 @@
 - Ortega Nicolas Rafael
 - Triunfetti Hugo Hernan
 - Juan Manuel Gimenez
-- Ortega Nicolas Rafael
 
 
 ## Fecha de Presentacion 21 de Junio del 2023 ⌛
