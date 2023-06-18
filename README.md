@@ -31,7 +31,7 @@ EVALUACIÓN:
 - [Trello](https://trello.com)
 Tenga en cuenta que al ingresar al link tiene que tener su usuario y constraseña.
 ## Repositorio utilizado: 
-- [GitHup](https://github.com/juanmakorn/)
+- [GitHup](https://github.com/juanmakorn/tp4Ejercicio14.git)
 Tenga en cuenta que al ingresar al link tiene que tener su usuario y constraseña.
 ## Se agradese a:
 - [Rolling Code School](https://rollingcodeschool.com/)
