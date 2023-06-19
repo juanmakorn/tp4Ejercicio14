@@ -1,10 +1,10 @@
 import React from 'react';
-import RecipeList from '../RecipePage';
+import ListaRecetas from '../ListaRecetas';
 
 const PaginaAdministrador = () => {
     return (
         <div>
-            <RecipeList/>
+            <ListaRecetas/>
         </div>
     );
 };

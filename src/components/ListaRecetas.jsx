@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 
+const ListaRecetas = () => {
+  const [recetas, setrecetas] = useState([]);
 
-const RecipeList = () => {
-  const [recipes, setRecipes] = useState([]);
-
-  const [newRecipe, setNewRecipe] = useState({
+  const [newreceta, setNewRecipe] = useState({
     name: "",
     ingredients: "",
     procedure: "",
@@ -12,50 +11,50 @@ const RecipeList = () => {
   const [selectedRecipeIndex, setSelectedRecipeIndex] = useState(-1);
 
   useEffect(() => {
-    const savedRecipes = localStorage.getItem("recipes");
-    if (savedRecipes) {
-      const parsedRecipes = JSON.parse(savedRecipes);
-      setRecipes(parsedRecipes);
+    const savedrecetas = localStorage.getItem("recetas");
+    if (savedrecetas) {
+      const parsedrecetas = JSON.parse(savedrecetas);
+      setrecetas(parsedrecetas);
     }
   }, []);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setNewRecipe({ ...newRecipe, [name]: value });
+    setNewRecipe({ ...newreceta, [name]: value });
   };
 
   const handleAddRecipe = () => {
     if (
-      newRecipe.name.trim() !== "" &&
-      newRecipe.ingredients.trim() !== "" &&
-      newRecipe.procedure.trim() !== ""
+      newreceta.name.trim() !== "" &&
+      newreceta.ingredients.trim() !== "" &&
+      newreceta.procedure.trim() !== ""
     ) {
       if (selectedRecipeIndex === -1) {
-        setRecipes([...recipes, newRecipe]);
+        setrecetas([...recetas, newreceta]);
         localStorage.setItem(
-          "recipes",
-          JSON.stringify([...recipes, newRecipe])
+          "recetas",
+          JSON.stringify([...recetas, newreceta])
         );
       } else {
-        const updatedRecipes = [...recipes];
-        updatedRecipes[selectedRecipeIndex] = newRecipe;
-        setRecipes(updatedRecipes);
+        const updatedrecetas = [...recetas];
+        updatedrecetas[selectedRecipeIndex] = newreceta;
+        setrecetas(updatedrecetas);
         setSelectedRecipeIndex(-1);
         setNewRecipe({ name: "", ingredients: "", procedure: "" });
-        localStorage.setItem("recipes", JSON.stringify(updatedRecipes));
+        localStorage.setItem("recetas", JSON.stringify(updatedrecetas));
       }
     }
   };
 
   const handleDeleteRecipe = (index) => {
-    const updatedRecipes = [...recipes];
-    updatedRecipes.splice(index, 1);
-    setRecipes(updatedRecipes);
-    localStorage.setItem("recipes", JSON.stringify(updatedRecipes));
+    const updatedrecetas = [...recetas];
+    updatedrecetas.splice(index, 1);
+    setrecetas(updatedrecetas);
+    localStorage.setItem("recetas", JSON.stringify(updatedrecetas));
   };
 
   const handleEditRecipe = (index) => {
-    const recipeToEdit = recipes[index];
+    const recipeToEdit = recetas[index];
     setNewRecipe(recipeToEdit);
     setSelectedRecipeIndex(index);
   };
@@ -75,7 +74,7 @@ const RecipeList = () => {
             className="form-control"
             id="name"
             name="name"
-            value={newRecipe.name}
+            value={newreceta.name}
             onChange={handleInputChange}
           />
         </div>
@@ -87,7 +86,7 @@ const RecipeList = () => {
             className="form-control"
             id="ingredients"
             name="ingredients"
-            value={newRecipe.ingredients}
+            value={newreceta.ingredients}
             onChange={handleInputChange}
           ></textarea>
         </div>
@@ -99,7 +98,7 @@ const RecipeList = () => {
             className="form-control"
             id="procedure"
             name="procedure"
-            value={newRecipe.procedure}
+            value={newreceta.procedure}
             onChange={handleInputChange}
           ></textarea>
         </div>
@@ -112,7 +111,7 @@ const RecipeList = () => {
         </button>
       </form>
       <ul className="list-group mt-3">
-        {recipes.map((recipe, index) => (
+        {recetas.map((recipe, index) => (
           <li className="list-group-item" key={index}>
             <h3>{recipe.name}</h3>
             <p>
@@ -143,4 +142,4 @@ const RecipeList = () => {
   );
 };
 
-export default RecipeList;
+export default ListaRecetas;
