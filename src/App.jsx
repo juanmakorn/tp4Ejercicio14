@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Titulos from "./components/Titulos";
 import Footer from "./components/common/Footer";
 import Menu from "./components/common/Menu";
-import RecipePage from "./components/RecipePage";
+import RecipePage from "./components/ListaRecetas";
 import PaginaPrincipal from "./components/views/PaginaPrincipal";
 import PaginaAdministrador from "./components/views/PaginaAdministrador";
 import Error404 from "./components/views/Error404";
