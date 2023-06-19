@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const RecipeList = () => {
   const [recipes, setRecipes] = useState([]);
@@ -8,6 +8,14 @@ const RecipeList = () => {
     procedure: '',
   });
 
+  useEffect(() => {
+    const savedRecipes = localStorage.getItem('recipes');
+    if (savedRecipes) {
+      const parsedRecipes = JSON.parse(savedRecipes);
+      setRecipes(parsedRecipes);
+    }
+  }, []);
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setNewRecipe({ ...newRecipe, [name]: value });
@@ -15,8 +23,10 @@ const RecipeList = () => {
 
   const handleAddRecipe = () => {
     if (newRecipe.name.trim() !== '' && newRecipe.ingredients.trim() !== '' && newRecipe.procedure.trim() !== '') {
-      setRecipes([...recipes, newRecipe]);
+      const updatedRecipes = [...recipes, newRecipe];
+      setRecipes(updatedRecipes);
       setNewRecipe({ name: '', ingredients: '', procedure: '' });
+      localStorage.setItem('recipes', JSON.stringify(updatedRecipes));
     }
   };
 
