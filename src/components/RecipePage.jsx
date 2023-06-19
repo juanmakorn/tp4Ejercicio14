@@ -20,6 +20,7 @@ const RecipeList = () => {
       setNewRecipe({ name: '', ingredients: '', procedure: '' });
     }
   };
+  
 
   return (
     <div className="container">
