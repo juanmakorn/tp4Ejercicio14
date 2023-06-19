@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const RecipeList = () => {
   const [recipes, setRecipes] = useState([]);
+
   const [newRecipe, setNewRecipe] = useState({
-    name: '',
-    ingredients: '',
-    procedure: '',
+    name: "",
+    ingredients: "",
+    procedure: "",
   });
+  const [selectedRecipeIndex, setSelectedRecipeIndex] = useState(-1);
 
   useEffect(() => {
-    const savedRecipes = localStorage.getItem('recipes');
+    const savedRecipes = localStorage.getItem("recipes");
     if (savedRecipes) {
       const parsedRecipes = JSON.parse(savedRecipes);
       setRecipes(parsedRecipes);
@@ -22,13 +24,42 @@ const RecipeList = () => {
   };
 
   const handleAddRecipe = () => {
-    if (newRecipe.name.trim() !== '' && newRecipe.ingredients.trim() !== '' && newRecipe.procedure.trim() !== '') {
-      const updatedRecipes = [...recipes, newRecipe];
-      setRecipes(updatedRecipes);
-      setNewRecipe({ name: '', ingredients: '', procedure: '' });
-      localStorage.setItem('recipes', JSON.stringify(updatedRecipes));
+    if (
+      newRecipe.name.trim() !== "" &&
+      newRecipe.ingredients.trim() !== "" &&
+      newRecipe.procedure.trim() !== ""
+    ) {
+      if (selectedRecipeIndex === -1) {
+        setRecipes([...recipes, newRecipe]);
+        localStorage.setItem(
+          "recipes",
+          JSON.stringify([...recipes, newRecipe])
+        );
+      } else {
+        const updatedRecipes = [...recipes];
+        updatedRecipes[selectedRecipeIndex] = newRecipe;
+        setRecipes(updatedRecipes);
+        setSelectedRecipeIndex(-1);
+        setNewRecipe({ name: "", ingredients: "", procedure: "" });
+        localStorage.setItem("recipes", JSON.stringify(updatedRecipes));
+      }
     }
   };
+
+  const handleDeleteRecipe = (index) => {
+    const updatedRecipes = [...recipes];
+    updatedRecipes.splice(index, 1);
+    setRecipes(updatedRecipes);
+    localStorage.setItem("recipes", JSON.stringify(updatedRecipes));
+  };
+
+  const handleEditRecipe = (index) => {
+    const recipeToEdit = recipes[index];
+    setNewRecipe(recipeToEdit);
+    setSelectedRecipeIndex(index);
+  };
+
+  
 
   return (
     <div className="container">
@@ -71,7 +102,11 @@ const RecipeList = () => {
             onChange={handleInputChange}
           ></textarea>
         </div>
-        <button type="button" className="btn btn-primary" onClick={handleAddRecipe}>
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={handleAddRecipe}
+        >
           Agregar receta
         </button>
       </form>
@@ -85,6 +120,21 @@ const RecipeList = () => {
             <p>
               <strong>Procedimiento:</strong> {recipe.procedure}
             </p>
+            <button
+              type="button"
+              className="btn btn-secondary"
+              onClick={() => handleEditRecipe(index)}
+            >
+              Editar
+            </button>
+
+            <button
+              type="button"
+              className="btn btn-danger"
+              onClick={() => handleDeleteRecipe(index)}
+            >
+              Eliminar
+            </button>
           </li>
         ))}
       </ul>
