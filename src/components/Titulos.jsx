@@ -2,7 +2,7 @@ import React from 'react';
 
 const Titulos = () => {
     return (
-        <section>
+        <section className='container'>
       <h1> LAS MEJORES RECETAS DE COCINA CASERA</h1>
       <div>
         Más de 5 recetas de cocina lleva subidas, Cocina Casera y Fácil. Y aquí,
