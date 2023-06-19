@@ -46,6 +46,7 @@ const RecipeList = () => {
       }
     }
   };
+  
 
   const handleDeleteRecipe = (index) => {
     const updatedRecipes = [...recipes];
