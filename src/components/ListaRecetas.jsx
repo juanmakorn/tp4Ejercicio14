@@ -40,11 +40,14 @@ const ListaRecetas = () => {
         updatedrecetas[selectedRecipeIndex] = newreceta;
         setrecetas(updatedrecetas);
         setSelectedRecipeIndex(-1);
-        setNewRecipe({ name: "", ingredients: "", procedure: "" });
         localStorage.setItem("recetas", JSON.stringify(updatedrecetas));
       }
+  
+      // Limpiar el contenedor del formulario
+      setNewRecipe({ name: "", ingredients: "", procedure: "" });
     }
   };
+  
   
 
   const handleDeleteRecipe = (index) => {
