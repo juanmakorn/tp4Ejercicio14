@@ -126,7 +126,7 @@ const ListaRecetas = () => {
             </p>
             <button
               type="button"
-              className="btn btn-secondary"
+              className="btn btn-secondary m-2"
               onClick={() => handleEditRecipe(index)}
             >
               Editar
@@ -134,7 +134,7 @@ const ListaRecetas = () => {
 
             <button
               type="button"
-              className="btn btn-danger"
+              className="btn btn-danger m-2"
               onClick={() => handleDeleteRecipe(index)}
             >
               Eliminar
