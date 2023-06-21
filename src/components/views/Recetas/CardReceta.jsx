@@ -3,7 +3,8 @@ import { Col, Card, Button } from "react-bootstrap";
 
 const CardReceta = (() => {
   return (
-    <Col md={3} ld={3} className="mb-3">
+    <section className="container mt-3">
+    <Col md={3} ld={3} className="mb-3 ">
       <Card>
         <Card.Img variant="top" src="" />
         <Card.Body>
@@ -25,6 +26,7 @@ const CardReceta = (() => {
         </Card.Body>
       </Card>
     </Col>
+    </section>
   );
 });
 
