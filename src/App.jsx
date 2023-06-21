@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Titulo from "./components/Titulo";
 import Menu from "./components/common/Menu";
 import Footer from "./components/common/Footer";
+import CardReceta from "./components/views/Recetas/CardReceta";
 function App() {
   // se genera logica -- 
 
@@ -10,6 +11,10 @@ function App() {
     <>
     <Menu></Menu>
     <Titulo></Titulo>
+    <CardReceta></CardReceta>
+    <CardReceta></CardReceta>
+    <CardReceta></CardReceta>
+  
     <Footer></Footer>
     </>
   );
