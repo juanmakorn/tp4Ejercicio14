@@ -1,9 +1,9 @@
 import React from "react";
 import Menu from "../common/Menu";
 import Footer from "../common/Footer";
+import CardReceta from "./Recetas/CardReceta";
 import Titulo from "../Titulo";
-
-const PaginaPrincipal = () => {
+function PaginaPrincipal() {
   return (
     <section>
       <Menu></Menu>
@@ -12,6 +12,6 @@ const PaginaPrincipal = () => {
       <Footer></Footer>
     </section>
   );
-};
+}
 
 export default PaginaPrincipal;

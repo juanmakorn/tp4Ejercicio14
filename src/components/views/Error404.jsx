@@ -6,7 +6,6 @@ const Error404 = () => {
             <h2>Pagina de error</h2>
             <div>
             <Button variant='primary' >Volver al inicio</Button>
-
             </div>
         </section>
     );
