@@ -21,7 +21,7 @@ const Login = () => {
       window.location.href = '/administrador';
     } else {
       // Mostrar mensaje de error y borrar campos de entrada
-      setError('Error, el usuario debe ser admin y la contraseña 123');
+      setError('Error, el usuario ingrsado debe ser admin y la contraseña 123');
       setusuario('');
       setcontraseña('');
     }
