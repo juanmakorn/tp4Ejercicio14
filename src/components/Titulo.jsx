@@ -1,10 +1,9 @@
-import React, { memo } from "react";
+import React from 'react';
 
-const Titulo = memo(() => {
+const Titulos = () => {
   return (
     <section className="container">
       <h1 className="display-4"> LAS MEJORES RECETAS DE COCINA CASERA</h1>
-
       <t className="display-7">
         Más recetas de cocina lleva subidas, Cocina Casera y Fácil. Y aquí,
         quiero hacer una recopilación con recetas de cocina faciles y rápidas de
@@ -14,6 +13,6 @@ const Titulo = memo(() => {
       </t>
     </section>
   );
-});
+};
 
 export default Titulo;

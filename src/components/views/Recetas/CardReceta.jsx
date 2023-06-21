@@ -1,7 +1,7 @@
-import React, { memo } from "react";
+import React, {} from "react";
 import { Col, Card, Button } from "react-bootstrap";
 
-const CardReceta = memo(() => {
+const CardReceta = (() => {
   return (
     <Col md={3} ld={3} className="mb-3">
       <Card>
