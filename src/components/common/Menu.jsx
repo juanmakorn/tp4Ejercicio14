@@ -3,7 +3,7 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 
 const Menu = () => {
   return (
-    <Navbar bg="danger" variant="dark" expand="lg">
+    <Navbar bg="light" variant="light" expand="lg">
       <Container>
         <Navbar.Brand href="#home">Recetas Caseras</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

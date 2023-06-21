@@ -1,19 +1,23 @@
 import "./App.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Titulos from "./components/Titulos";
-import Footer from "./components/common/Footer";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Titulo from "./components/Titulo";
 import Menu from "./components/common/Menu";
-
+import Footer from "./components/common/Footer";
+import CardReceta from "./components/views/Recetas/CardReceta";
+import Menu from "./components/common/Menu";
 function App() {
-  // se genera logica --  const [count, setCount] = useState(0)
+  // se genera logica -- 
 
   return (
-    <section>
-      <Menu/>
-      <Titulos/>
-      <Footer/> 
-
-    </section>
+    <>
+    <Menu></Menu>
+    <Titulo></Titulo>
+    <CardReceta></CardReceta>
+    <CardReceta></CardReceta>
+    <CardReceta></CardReceta>
+  
+    <Footer></Footer>
+    </>
   );
 }
 
