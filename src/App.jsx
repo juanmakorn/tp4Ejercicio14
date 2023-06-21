@@ -4,6 +4,7 @@ import Titulo from "./components/Titulo";
 import Menu from "./components/common/Menu";
 import Footer from "./components/common/Footer";
 import CardReceta from "./components/views/Recetas/CardReceta";
+import Menu from "./components/common/Menu";
 function App() {
   // se genera logica -- 
 
